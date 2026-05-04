@@ -1,7 +1,5 @@
 # Estudos de Java :coffee:
 
-***
-
 O intuito desse repositório é mostrar o meu progresso no aprendizado da linguagem Java, estou utilizando como base para o meu aprendizado o curso de Java do Prof. Dr. Nélio Alves na Udemy.
 
 Até o final do curso, espera-se que eu aprenda:
