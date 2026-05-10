@@ -1,18 +1,17 @@
 package application;
 
-import entities.Triangle; // Para classes que pertecem a outros pacotes, é necessário fazer a importação.
+import entities.Triangle;
 
-import java.util.Locale;
 import java.util.Scanner;
+import java.util.Locale;
 
 public class Main {
     void main() {
-        // Exercício dos Triângulos com P.O.O. (considere esse como o código principal)
+        // Terceira versão do exercício do Triângulo, usando métodos.
 
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        // Criando e instanciando os objetos da classe Triangle
         Triangle x, y;
         x = new Triangle();
         y = new Triangle();
@@ -29,11 +28,8 @@ public class Main {
         y.b = sc.nextDouble();
         y.c = sc.nextDouble();
 
-        double p = (x.a + x.b + x.c) / 2;
-        double areaX = Math.sqrt(p * (p - x.a) * (p - x.b) * (p - x.c));
-
-        p = (y.a + y.b + y.c) / 2;
-        double areaY = Math.sqrt(p * (p - y.a) * (p - y.b) * (p - y.c));
+        double areaX = x.calculateArea();
+        double areaY = y.calculateArea();
 
         char larger = (areaX > areaY)? 'X' : 'Y';
 
@@ -45,11 +41,19 @@ public class Main {
 
         sc.close();
 
-        /* A ideia aqui é entender como podemos utilizar as classes no nosso programa ao invés de apenas criar uma variável para cada dado que vamos trabalhar (o que não é muito eficiente).
+        /* Ao analisar as três versões do mesmo programa, observa-se o seguinte:
         *
-        *  Posteriormente, iremos aprender (ou no meu caso, revisar) a tornar esse programa mais enxuto com classes, utilizando o conceito de métodos (isso, é claro, depois que eu ter a minha merecida noite de sono).
+        *  1º Programa: Não possui orientação a objetos, toda a lógica do programa, incluindo os dados que vamos trabalhar
+        *  é feito no código principal, fazendo necessário crar várias variáveis, gerando um código ineficiente.
         *
-        * Voltamos ainda hoje (posto este commit depois da meia noite) com a programação normal ;)
+        *  2º Programa: Agora, utilizamos a orientação a objetos ao criar uma classe Triângulo que vai possuir os atributos
+        *  necessários para o nosso código. Agora, quando queremos criar trabalhar com um triângulo, basta instanciar um objeto
+        *  da classe Triangle que ele já vai receber os atributos que queremos, sendo um pouco mais eficiente. O problema dessa
+        *  versão se deve ao fato de que toda a lógica de cálculo da área é feito no código principal, o que torna o código redundante
+        *  já que como temos dois triângulos, temos que repetir o exato mesmo bloco de código duas vezes (se tivessem mais triângulo, essa repetição ocorreria mais vezes ainda).
+        *
+        *  3º Programa: Agora, toda lógica para que se possa calcular a área é feita pela própria classe, que é o ideal, tornando o código
+        *  mais enxuto e eficiente com a utilização de métodos.
         * */
     }
 }
