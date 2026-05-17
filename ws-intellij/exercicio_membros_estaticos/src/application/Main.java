@@ -9,7 +9,7 @@ public class Main {
     void main() {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-
++
         System.out.print("What is the dollar price? ");
         double dollarPrice = sc.nextDouble();
 
